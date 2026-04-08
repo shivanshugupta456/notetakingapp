@@ -2,6 +2,10 @@
 
 A full-stack note taking app built with React, Vite, Tailwind CSS, Express, and MongoDB. NoteKeeper lets users create, view, edit, and delete notes through a clean dashboard-style interface designed for demos, projects, and portfolio showcases.
 
+## Preview
+
+![NoteKeeper Dashboard](./docs/images/notekeeper-dashboard.png)
+
 ## Highlights
 
 - Create notes with title and content validation
@@ -48,6 +52,8 @@ note taking app/
 |   |   `-- pages/
 |   |-- public/
 |   `-- package.json
+|-- docs/
+|   `-- images/
 `-- README.md
 ```
 
