@@ -1,43 +1,73 @@
 import React, { useContext, useState } from 'react'
 import { NoteContext } from '../context/NoteContext'
 
-function Noteform() {
-    const {createNote}=useContext(NoteContext)
-    const [note,setNote]=useState({
-        title:"",
-        content:""
-    })
+const sampleNote = {
+  title: 'Interview Prep Sprint Plan',
+  content:
+    'Focus for this week:\n- Build the note taking app end-to-end with clean CRUD flows\n- Improve UI so the product feels polished, not just functional\n- Revise arrays, binary search, and sliding window patterns daily\n\nAction items:\n- Finish responsive note cards and empty states\n- Add meaningful sample data and cleaner formatting\n- Practice explaining architecture: React context, API layer, Express routes, MongoDB model\n\nSuccess metric:\nI should be able to demo the app in 2 minutes and explain one technical decision with confidence.',
+}
 
-    const handleSubmit=(e)=>{
-        e.preventDefault()
-        if(!note.title || !note.content)return
-        createNote(note)
-        setNote({title:"",content:""})
-    }
+function Noteform() {
+  const { createNote } = useContext(NoteContext)
+  const [note, setNote] = useState({
+    title: '',
+    content: '',
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!note.title || !note.content) return
+    createNote(note)
+    setNote({ title: '', content: '' })
+  }
+
   return (
-    <div className="max-w-xl mx-auto mt-10 bg-gray-800 rounded-2xl shadow-lg p-6">
-      <h2 className="text-2xl font-bold text-center text-blue-400 mb-6">Create a New Note</h2>
+    <div className="mx-auto mt-10 w-full max-w-2xl rounded-[28px] border border-slate-700/60 bg-slate-900/90 p-6 shadow-2xl shadow-slate-950/30 backdrop-blur">
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
+            Smart Capture
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-white">Create a note worth showing</h2>
+          <p className="mt-2 max-w-lg text-sm text-slate-300">
+            Add clear, structured notes so your app feels intentional during a demo.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setNote(sampleNote)}
+          className="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400/20 hover:text-white"
+        >
+          Use Interview Sample
+        </button>
+      </div>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
-          placeholder="Enter title..."
-          className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none"
+          placeholder="Ex: Product roadmap, interview prep, launch checklist..."
+          className="w-full rounded-2xl border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/30 focus:outline-none"
           value={note.title}
           onChange={(e) => setNote({ ...note, title: e.target.value })}
         />
         <textarea
-          placeholder="Write your note here..."
-          className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none"
-          rows="5"
+          placeholder="Write a concise note with bullets, action items, or priorities..."
+          className="min-h-56 w-full rounded-2xl border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/30 focus:outline-none"
+          rows="8"
           value={note.content}
           onChange={(e) => setNote({ ...note, content: e.target.value })}
         />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 transition text-white font-semibold py-2 rounded-lg shadow-md"
-        >
-          Add Note
-        </button>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-slate-400">
+            Tip: strong titles and structured content instantly improve the demo.
+          </p>
+          <button
+            type="submit"
+            className="rounded-full bg-cyan-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400"
+          >
+            Add Note
+          </button>
+        </div>
       </form>
     </div>
   )

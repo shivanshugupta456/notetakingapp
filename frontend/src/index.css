@@ -2,4 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background:
+    radial-gradient(circle at top, rgba(34, 211, 238, 0.18), transparent 30%),
+    linear-gradient(180deg, #020617 0%, #0f172a 45%, #020617 100%);
+  color: #f8fafc;
+  font-family: "Segoe UI", sans-serif;
+}
 
+.app-shell {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.12), transparent 18%),
+    radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.14), transparent 20%);
+}
+
+.note-preview-line {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.6;
+}

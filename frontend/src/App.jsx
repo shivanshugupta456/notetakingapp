@@ -7,20 +7,16 @@ import Createnote from './pages/Createnote'
 
 function App() {
   return (
-    <div className='flex flex-col min-h-screen bg-gray-900 text-white'>
-      {/* Navbar */}
+    <div className="app-shell flex min-h-screen flex-col text-white">
       <Navbar/>
 
-      {/* Main Content */}
-      <main className='flex-1 container mx-auto p-4'>
+      <main className="container mx-auto flex-1 px-4 py-6">
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Createnote />} />
       </Routes>
       </main>
 
-
-      {/* Footer */}
       <Footer/>
     </div>
   )
