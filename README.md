@@ -16,7 +16,7 @@ A full-stack note taking app built with React, Vite, Tailwind CSS, Express, and 
 
 ## Preview
 
-![NoteKeeper Dashboard](./docs/images/notekeeper-dashboard.png)
+![NoteKeeper Dashboard](./docs/images/notekeeper-dashboard.png.png)
 
 Clean dashboard view with responsive note cards, inline actions, and a polished demo-ready layout.
 
